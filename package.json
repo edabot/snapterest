@@ -1,0 +1,25 @@
+{
+  "name": "snapterest",
+  "version": "1.0.0",
+  "description": "Project from React.js Essentials",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edabot/snapterest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edabot/snapterest/issues"
+  },
+  "homepage": "https://github.com/edabot/snapterest#readme",
+  "devDependencies": {
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
