@@ -1,1 +1,1 @@
-# snapterest
+Project from React.js Essentials
