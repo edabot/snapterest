@@ -19031,14 +19031,42 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":26}],159:[function(require,module,exports){
+'use strict';
+
+// var React = require('react');
+// var ReactDOM = require('react-dom');
+//
+// var listOfItems = <ul className="list-of-items">
+//                     <li className="item-1">Item 1</li>
+//                     <li className="item-2">Item 2</li>
+//                     <li className="item-3">Item 3</li>
+//                   </ul>;
+//
+// ReactDOM.render(listOfItems, document.getElementById('react-application'));
+
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var h1 = React.createElement('h1', { className: 'header', key: 'header' }, 'This is React');
-var p = React.createElement('p', { className: 'header', key: 'content' }, "And that's how it works.");
-var reactFragment = [h1, p];
-var section = React.createElement('section', { className: 'container' }, reactFragment);
+var listOfItems = React.createElement(
+                    'ul',
+                    { className: 'list-of-items' },
+                    React.createElement(
+                                        'li',
+                                        { className: 'item-1' },
+                                        'Item 1'
+                    ),
+                    React.createElement(
+                                        'li',
+                                        { className: 'item-2' },
+                                        'Item 2'
+                    ),
+                    React.createElement(
+                                        'li',
+                                        { className: 'item-3' },
+                                        'Item 3'
+                    )
+);
 
-ReactDOM.render(section, document.getElementById('react-application'));
+ReactDOM.render(listOfItems, document.getElementById('react-application'));
 
 },{"react":158,"react-dom":2}]},{},[159]);

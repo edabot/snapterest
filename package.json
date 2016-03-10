@@ -17,11 +17,13 @@
   },
   "homepage": "https://github.com/edabot/snapterest#readme",
   "devDependencies": {
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
+    "browser-sync": "^1.2.1",
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
-    "vinyl-source-stream": "^1.1.0",
-    "browser-sync": "^1.2.1"
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "react": "^0.14.7",
