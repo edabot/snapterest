@@ -29,10 +29,10 @@ var TweetList = React.createClass({
         />
       );
     } else {
-      tweetElement = <Tweet tweet={tweet} />}
+      tweetElement = <Tweet tweet={tweet} />;
     }
 
-    return <li stle={listItemStyle} key={tweet.id}>{tweetElement}</li>;
+    return <li style={listItemStyle} key={tweet.id}>{tweetElement}</li>;
   },
 
   render: function (){

@@ -4,14 +4,14 @@ var CollectionControls = require('./CollectionControls.react');
 var TweetList = require('./TweetList.react');
 var Header = require('./Header.react');
 
-var Collection = React.createClass([
+var Collection = React.createClass({
   createHtmlMarkupStringOfTweetList: function () {
     var htmlString = reactDOMServer.renderToStaticMarkup(
       <TweetList tweets={this.props.tweets} />
     );
 
     var htmlMarkup = {
-      html: htmlString;
+      html: htmlString
     };
 
     return JSON.stringify(htmlMarkup);
@@ -53,4 +53,4 @@ var Collection = React.createClass([
     return <Header text="Your collection ins empty" />;
   }
 
-]);
+});
