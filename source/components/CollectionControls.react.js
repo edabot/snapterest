@@ -6,14 +6,14 @@ var CollectionExportForm = require('./CollectionExportForm.react');
 
 var CollectionControls = React.createClass({
 
-  getInitialState: function () {
+  getInitialState: function() {
     return {
       name: 'new',
       isEditingName: false
     };
   },
 
-  getHeaderText: function () {
+  getHeaderText: function() {
     var numberOfTweetsInCollection = this.props.numberOfTweetsInCollection;
     var text = numberOfTweetsInCollection;
 
@@ -25,33 +25,33 @@ var CollectionControls = React.createClass({
 
     return (
       <span>
-      {text} <strong>{this.state.name}</strong> collection
+        {text}  <strong>{this.state.name}</strong> collection
       </span>
-    );
+      );
   },
 
-  toggleEditCollectionName: function () {
+  toggleEditCollectionName: function() {
     this.setState({
       isEditingName: !this.state.isEditingName
     });
   },
 
-  setCollectionName: function (name) {
+  setCollectionName: function(name) {
     this.setState({
       name: name,
       isEditingName: false
     });
   },
 
-  render: function () {
+  render: function() {
     if (this.state.isEditingName) {
       return (
-        <CollectionRenameForm
+        <ColletionRenameForm
           name={this.state.name}
           onChangeCollectionName={this.setCollectionName}
           onCancelCollectionNameChange={this.toggleEditCollectionName}
-        />
-      );
+          />
+        );
     }
 
     return (
@@ -60,18 +60,11 @@ var CollectionControls = React.createClass({
 
         <Button
           label="Rename collection"
-          handleClick={this.toggleEditCollectionName}
-        />
-
-        <Button
-          label="Empty collection"
-          handleClick={this.props.onRemoveAllTweetsFromCollection}
-        />
+          handleClick={this.toggleEditCollectionName} />
 
         <CollectionExportForm htmlMarkup={this.props.htmlMarkup} />
-
       </div>
-    );
+      );
   }
 });
 

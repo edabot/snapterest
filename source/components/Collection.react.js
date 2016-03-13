@@ -1,14 +1,14 @@
 var React = require('react');
-var reactDOMServer = require('reactdom/server');
+var ReactDOMServer = require('react-dom/server');
 var CollectionControls = require('./CollectionControls.react');
 var TweetList = require('./TweetList.react');
 var Header = require('./Header.react');
 
 var Collection = React.createClass({
   createHtmlMarkupStringOfTweetList: function () {
-    var htmlString = reactDOMServer.renderToStaticMarkup(
+    var htmlString = ReactDOMServer.renderToStaticMarkup(
       <TweetList tweets={this.props.tweets} />
-    );
+      );
 
     var htmlMarkup = {
       html: htmlString
@@ -22,35 +22,34 @@ var Collection = React.createClass({
   },
 
   getNumberOfTweetsInCollection: function () {
-    return this.getListOfTweetIds().length;
+    return this.getListOfTweetIds().length
   },
 
   render: function () {
-    var numberOfTweetsInCollection = this.getNumberOfTweetsInCollection();
+    var getNumberOfTweetsInCollection = this.getNumberOfTweetsInCollection();
 
-    if(numberOfTweetsInCollection > 0) {
+    if (getNumberOfTweetsInCollection > 0) {
       var tweets = this.props.tweets;
       var htmlMarkup = this.createHtmlMarkupStringOfTweetList();
-      var removeAllTweetsFromCollection = this.props.onRemoveTweetFromCollection;
-      var handleRemoveTweetFromCollection = this.props.onRemoveTweetFromCollection;
+      var removeAllTweetsFromCollection = this.props.onRemoveAllTweetsFromCollection;
+      var handleRemoveTweetsFromCollection = this.props.onRemoveAllTweetsFromCollection;
 
       return (
         <div>
           <CollectionControls
-          numberOfTweetsInCollection={numberOfTweetsInCollection}
-          htmlMarkup={htmlMarkup}
-          onRemoveAllTweetsFromCollection={removeAllTweetsFromCollection}
-          />
+            getNumberOfTweetsInCollection={getNumberOfTweetsInCollection}
+            htmlMarkup={htmlMarkup}
+            onRemoveAllTweetsFromCollection={removeAllTweetsFromCollection} />
 
-          <TweetList
-          tweets={tweets}
-          onRemoveTweetFromCollection={handleRemoveTweetFromCollection}
-          />
+            <TweetList
+              tweets={tweets}
+              onRemoveAllTweetsFromCollection={handleRemoveTweetsFromCollection} />
         </div>
-      );
+        );
     }
-
-    return <Header text="Your collection ins empty" />;
+    return <Header text="Your collection is empty" />
   }
 
 });
+
+module.exports = Collection;

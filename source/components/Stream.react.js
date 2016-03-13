@@ -4,13 +4,14 @@ var StreamTweet = require('./StreamTweet.react');
 var Header = require('./Header.react');
 
 var Stream = React.createClass({
+
   getInitialState: function () {
     return {
       tweet: null
-    }
+    };
   },
 
-  componentDidMount:function () {
+  componentDidMount: function () {
     SnapkiteStreamClient.initializeStream(this.handleNewTweet);
   },
 
@@ -30,9 +31,8 @@ var Stream = React.createClass({
     if (tweet) {
       return (
         <StreamTweet
-        tweet={tweet}
-        onAddTweetToCollection={this.props.onAddTweetToCollection}
-        />
+          tweet={tweet}
+          onAddTweetToCollection={this.props.onAddTweetToCollection} />
       );
     }
 
@@ -40,7 +40,6 @@ var Stream = React.createClass({
       <Header text="Waiting for public photos from Twitter..." />
     );
   }
-
 });
 
 module.exports = Stream;
