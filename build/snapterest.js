@@ -26583,17 +26583,16 @@ var CollectionControls = React.createClass({
       'span',
       null,
       text,
-      '  ',
+      ' ',
       React.createElement(
         'strong',
         null,
         this.state.name
-      ),
-      ' collection'
+      )
     );
   },
 
-  toggleEditCollectionName: function toggleEditCollectionName() {
+  toggleEditCollectionName: function toggleEditCollectionName(name) {
     this.setState({
       isEditingName: !this.state.isEditingName
     });
@@ -26607,8 +26606,9 @@ var CollectionControls = React.createClass({
   },
 
   render: function render() {
+
     if (this.state.isEditingName) {
-      return React.createElement(ColletionRenameForm, {
+      return React.createElement(CollectionRenameForm, {
         name: this.state.name,
         onChangeCollectionName: this.setCollectionName,
         onCancelCollectionNameChange: this.toggleEditCollectionName
@@ -26687,7 +26687,7 @@ var CollectionRenameForm = React.createClass({
 
   setInputValue: function setInputValue(inputValue) {
     this.setState({
-      inputValue: inputeValue
+      inputValue: inputValue
     });
   },
 

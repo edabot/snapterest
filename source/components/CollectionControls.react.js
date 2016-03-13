@@ -20,17 +20,17 @@ var CollectionControls = React.createClass({
     if (numberOfTweetsInCollection === 1) {
       text = text + ' tweet in your';
     } else {
-      text = text + ' tweets in your';
+      text = text + ' tweets in your'
     }
 
     return (
       <span>
-        {text}  <strong>{this.state.name}</strong> collection
+        {text} <strong>{this.state.name}</strong>
       </span>
-      );
+    );
   },
 
-  toggleEditCollectionName: function() {
+  toggleEditCollectionName: function(name) {
     this.setState({
       isEditingName: !this.state.isEditingName
     });
@@ -44,9 +44,10 @@ var CollectionControls = React.createClass({
   },
 
   render: function() {
+
     if (this.state.isEditingName) {
       return (
-        <ColletionRenameForm
+        <CollectionRenameForm
           name={this.state.name}
           onChangeCollectionName={this.setCollectionName}
           onCancelCollectionNameChange={this.toggleEditCollectionName}
@@ -68,7 +69,7 @@ var CollectionControls = React.createClass({
 
         <CollectionExportForm htmlMarkup={this.props.htmlMarkup} />
       </div>
-      );
+    );
   }
 });
 

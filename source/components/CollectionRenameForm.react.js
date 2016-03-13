@@ -16,7 +16,7 @@ var CollectionRenameForm = React.createClass({
 
   setInputValue: function(inputValue) {
     this.setState({
-      inputValue: inputeValue
+      inputValue: inputValue
     });
   },
 
@@ -45,19 +45,19 @@ var CollectionRenameForm = React.createClass({
 
   render: function() {
     return (
-    <form className="form-inline" onSubmit={this.handleSubmit}>
-      <Header text="Collection name:" />
-      <div className="form-group">
-        <input
-          className="form-control"
-          style={inputStyle}
-          onChange={this.handleInputValueChange}
-          value={this.state.inputValue}
-          ref="collectionName" />
-      </div>
-      <Button label="Change" handleClick={this.handleFormSubmit} />
-      <Button label="Cancel" handleClick={this.handleFormCancel} />
-    </form>
+      <form className="form-inline" onSubmit={this.handleSubmit}>
+        <Header text="Collection name:" />
+        <div className="form-group">
+          <input
+            className="form-control"
+            style={inputStyle}
+            onChange={this.handleInputValueChange}
+            value={this.state.inputValue}
+            ref="collectionName" />
+        </div>
+        <Button label="Change" handleClick={this.handleFormSubmit} />
+        <Button label="Cancel" handleClick={this.handleFormCancel} />
+      </form>
     );
   }
 });
