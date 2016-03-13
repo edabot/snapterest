@@ -26482,8 +26482,7 @@ var Button = React.createClass({
       {
         className: 'btn btn-default',
         style: buttonStyle,
-        onClick: this.props.handleClick
-      },
+        onClick: this.props.handleClick },
       this.props.label
     );
   }
@@ -26523,24 +26522,24 @@ var Collection = React.createClass({
   },
 
   render: function render() {
-    var getNumberOfTweetsInCollection = this.getNumberOfTweetsInCollection();
+    var numberOfTweetsInCollection = this.getNumberOfTweetsInCollection();
 
-    if (getNumberOfTweetsInCollection > 0) {
+    if (numberOfTweetsInCollection > 0) {
       var tweets = this.props.tweets;
       var htmlMarkup = this.createHtmlMarkupStringOfTweetList();
       var removeAllTweetsFromCollection = this.props.onRemoveAllTweetsFromCollection;
-      var handleRemoveTweetsFromCollection = this.props.onRemoveAllTweetsFromCollection;
+      var handleRemoveTweetFromCollection = this.props.onRemoveTweetFromCollection;
 
       return React.createElement(
         'div',
         null,
         React.createElement(CollectionControls, {
-          getNumberOfTweetsInCollection: getNumberOfTweetsInCollection,
+          numberOfTweetsInCollection: numberOfTweetsInCollection,
           htmlMarkup: htmlMarkup,
           onRemoveAllTweetsFromCollection: removeAllTweetsFromCollection }),
         React.createElement(TweetList, {
           tweets: tweets,
-          onRemoveAllTweetsFromCollection: handleRemoveTweetsFromCollection })
+          onRemoveTweetFromCollection: handleRemoveTweetFromCollection })
       );
     }
     return React.createElement(Header, { text: 'Your collection is empty' });
@@ -26623,6 +26622,9 @@ var CollectionControls = React.createClass({
       React.createElement(Button, {
         label: 'Rename collection',
         handleClick: this.toggleEditCollectionName }),
+      React.createElement(Button, {
+        label: 'Empty collection',
+        handleClick: this.props.onRemoveAllTweetsFromCollection }),
       React.createElement(CollectionExportForm, { htmlMarkup: this.props.htmlMarkup })
     );
   }
@@ -26935,7 +26937,7 @@ var tweetStyle = {
 };
 
 var imageStyle = {
-  maxHeight: '400x',
+  maxHeight: '400px',
   boxShadow: '0px 1px 1px 0px #aaa',
   border: '1px solid #fff'
 };
@@ -26945,7 +26947,6 @@ var Tweet = React.createClass({
 
 
   propTypes: {
-
     tweet: function tweet(properties, propertyName, componentName) {
       var tweet = properties[propertyName];
 
@@ -26977,9 +26978,7 @@ var Tweet = React.createClass({
     return React.createElement(
       'div',
       { style: tweetStyle },
-      React.createElement('img', { src: tweetMediaUrl,
-        onClick: this.handleImageClick,
-        style: imageStyle })
+      React.createElement('img', { src: tweetMediaUrl, onClick: this.handleImageClick, style: imageStyle })
     );
   }
 
@@ -27005,14 +27004,15 @@ var listItemStyle = {
 var TweetList = React.createClass({
   displayName: 'TweetList',
 
+
   getListOfTweetIds: function getListOfTweetIds() {
     return Object.keys(this.props.tweets);
   },
 
   getTweetElement: function getTweetElement(tweetId) {
-    var tweet = this.props.tweet(tweetId);
+    var tweet = this.props.tweets[tweetId];
     var handleRemoveTweetFromCollection = this.props.onRemoveTweetFromCollection;
-    var tweetELement;
+    var tweetElement;
 
     if (handleRemoveTweetFromCollection) {
       tweetElement = React.createElement(Tweet, {
@@ -27023,13 +27023,13 @@ var TweetList = React.createClass({
     }
     return React.createElement(
       'li',
-      { style: listItemStyle, key: 'tweet.id' },
+      { style: listItemStyle, key: tweet.id },
       tweetElement
     );
   },
 
   render: function render() {
-    var tweetElements = this.getListofTweetIds().map(this.getTweetElement);
+    var tweetElements = this.getListOfTweetIds().map(this.getTweetElement);
 
     return React.createElement(
       'ul',

@@ -15,7 +15,7 @@ var Stream = React.createClass({
     SnapkiteStreamClient.initializeStream(this.handleNewTweet);
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount: function() {
     SnapkiteStreamClient.destroyStream();
   },
 
@@ -25,7 +25,7 @@ var Stream = React.createClass({
     });
   },
 
-  render: function () {
+  render: function() {
     var tweet = this.state.tweet;
 
     if (tweet) {

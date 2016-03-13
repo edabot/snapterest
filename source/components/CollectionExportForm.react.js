@@ -5,7 +5,7 @@ var formStyle = {
 };
 
 var CollectionExportForm = React.createClass({
-  render: function () {
+  render: function() {
     return (
       <form action="http://codepen.io/pen/define"
       method="POST"

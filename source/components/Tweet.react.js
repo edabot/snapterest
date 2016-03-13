@@ -9,7 +9,7 @@ var tweetStyle = {
 };
 
 var imageStyle = {
-  maxHeight: '400x',
+  maxHeight: '400px',
   boxShadow: '0px 1px 1px 0px #aaa',
   border: '1px solid #fff'
 };
@@ -17,15 +17,14 @@ var imageStyle = {
 var Tweet = React.createClass({
 
   propTypes: {
-
     tweet: function(properties, propertyName, componentName) {
       var tweet = properties[propertyName];
 
-      if (! tweet) {
+      if (!tweet) {
         return new Error('Tweet must be set.');
       }
 
-      if (! tweet.media) {
+      if (!tweet.media) {
         return new Error('Tweet must have an image.');
       }
     },
@@ -33,7 +32,7 @@ var Tweet = React.createClass({
     onImageClick: React.PropTypes.func
   },
 
-  handleImageClick: function () {
+  handleImageClick: function() {
     var tweet = this.props.tweet;
     var onImageClick = this.props.onImageClick;
 
@@ -42,19 +41,17 @@ var Tweet = React.createClass({
     }
   },
 
-  render: function () {
+  render: function() {
     var tweet = this.props.tweet;
     var tweetMediaUrl = tweet.media[0].url;
 
     return (
       <div style={tweetStyle}>
-        <img src={tweetMediaUrl}
-        onClick = {this.handleImageClick}
-        style={imageStyle} />
+        <img src={tweetMediaUrl} onClick={this.handleImageClick} style={imageStyle} />
       </div>
     );
   }
 
 });
 
-module.exports = Tweet
+module.exports = Tweet;
