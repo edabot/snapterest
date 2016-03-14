@@ -3,7 +3,6 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 module.exports = {
 
   addTweetToCollection: function (tweet) {
-
     var action = {
       type: 'add_tweet_to_collection',
       tweet: tweet
@@ -13,7 +12,6 @@ module.exports = {
   },
 
   removeTweetFromCollection: function (tweetId) {
-
     var action = {
       type: 'remove_tweet_from_collection',
       tweetId: tweetId
@@ -23,7 +21,6 @@ module.exports = {
   },
 
   removeAllTweetsFromCollection: function () {
-
     var action = {
       type: 'remove_all_tweets_from_collection'
     };
@@ -32,7 +29,6 @@ module.exports = {
   },
 
   setCollectionName: function (collectionName) {
-
     var action = {
       type: 'set_collection_name',
       collectionName: collectionName
@@ -40,4 +36,4 @@ module.exports = {
 
     AppDispatcher.dispatch(action);
   }
-}
+};

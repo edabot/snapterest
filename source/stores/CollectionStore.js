@@ -29,46 +29,45 @@ function emitChange() {
 
 var CollectionStore = assign({}, EventEmitter.prototype, {
 
-  addChangeListener: function (callback) {
+  addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
 
-  removeChangeListener: function (callback) {
+  removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
 
-  getCollectionTweets: function () {
+  getCollectionTweets: function() {
     return collectionTweets;
   },
 
-  getCollectionName: function () {
+  getCollectionName: function() {
     return collectionName;
   }
 });
 
 function handleAction(action) {
-
   switch (action.type) {
 
     case 'add_tweet_to_collection':
-    addTweetToCollection(action.tweet);
-    emitChange();
-    break;
+      addTweetToCollection(action.tweet);
+      emitChange();
+      break;
 
     case 'remove_tweet_from_collection':
-    removeTweetFromCollection(action.tweetId);
-    emitChange();
-    break;
+      removeTweetFromCollection(action.tweetId);
+      emitChange();
+      break;
 
     case 'remove_all_tweets_from_collection':
-    removeAllTweetsFromCollection();
-    emitChange();
-    break;
+      removeAllTweetsFromCollection();
+      emitChange();
+      break;
 
     case 'set_collection_name':
-    setCollectionName(action.collectionName);
-    emitChange();
-    break;
+      setCollectionName(action.collectionName);
+      emitChange();
+      break;
 
     default: // ... do nothing
   }

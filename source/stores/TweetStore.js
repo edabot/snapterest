@@ -1,4 +1,4 @@
-var AppDispatcher = require('../dispatch/AppDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
@@ -28,7 +28,7 @@ var TweetStore = assign({}, EventEmitter.prototype, {
 });
 
 function handleAction(action) {
-  if (action.type ==='receive tweet') {
+  if (action.type === 'receive_tweet') {
     setTweet(action.tweet);
     emitChange();
   }

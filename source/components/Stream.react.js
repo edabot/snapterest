@@ -6,6 +6,7 @@ var TweetStore = require('../stores/TweetStore');
 var Stream = React.createClass({
 
   getInitialState: function () {
+    console.log('Running Stream GetInitialState()');
     return {
       tweet: TweetStore.getTweet()
     };
